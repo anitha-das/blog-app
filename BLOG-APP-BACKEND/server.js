@@ -41,6 +41,7 @@ const connectDB = async () => {
 
 connectDB();
 
+
 //to handle invalid path
 app.use((req, res, next) => {
   console.log(req.url);
