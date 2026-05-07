@@ -39,6 +39,7 @@ function WriteArticles() {
       setLoading(true);
       //make POST req to save new article
       let res = await axios.post("http://localhost:4000/author-api/article", articleObj, { withCredentials: true });
+
       //navigate to AuthorArticles
       if (res.status === 201) {
         toast.success("Article published successfully")
@@ -91,7 +92,8 @@ function WriteArticles() {
             <option value="technology">Technology</option>
             <option value="programming">Programming</option>
             <option value="ai">AI</option>
-            <option value="web-development">Web Development</option>
+            <option value="spiritual">Spiritual</option>
+            <option value="others">Other</option>
           </select>
 
           {errors.category && <p className={errorClass}>{errors.category.message}</p>}

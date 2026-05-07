@@ -43,9 +43,12 @@ function EditArticle() {
     //add articleId to modified article
     modifiedArticle.articleId=article._id;
     //make PUT req to update article
-    let res=await axios.put("http://localhost:4000/author-api/articles",
-      modifiedArticle,
-      {withCredentials:true})
+   let res = await axios.put(
+  "http://localhost:4000/author-api/articles",
+  modifiedArticle,
+  { withCredentials: true },
+);
+
     //naviagte to articleById component
    if(res.status===200){
     navigate(`/article/${article._id}`,{state:res.data.payload})

@@ -1,5 +1,6 @@
 import { createBrowserRouter, RouterProvider } from "react-router";
 import RootLayout from "./components/RootLayout";
+import AdminProfile from "./components/AdminProfile";
 import Home from "./components/Home";
 import Register from "./components/Register";
 import Login from "./components/Login";
@@ -61,6 +62,14 @@ function App() {
               element: <WriteArticles />,
             },
           ],
+        },
+        {
+          path: "admin-profile",
+          element: (
+            <ProtectedRoute allowedRoles={["ADMIN"]}>
+              <AdminProfile />
+            </ProtectedRoute>
+          ),
         },
         {
           path: "article/:id",

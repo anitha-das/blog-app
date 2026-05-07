@@ -3,6 +3,23 @@ import { verifyToken } from "../middlewares/VerifyToken.js";
 import { ArticleModel } from "../models/ArticleModel.js";
 export const userApp = exp.Router();
 
+//get user by id
+userApp.get("/article/:id", verifyToken("USER", "AUTHOR", "ADMIN"), async (req, res) => {
+  const article = await ArticleModel.findById(req.params.id)
+    .populate("author", "firstName lastName email role profileImageUrl")
+    .populate("comments.user", "firstName lastName email profileImageUrl");
+
+  if (!article) {
+    return res.status(404).json({ message: "Article not found" });
+  }
+
+  if (req.user.role === "USER" && article.isArticleActive === false) {
+    return res.status(403).json({ message: "Article is not available" });
+  }
+
+  res.status(200).json({ message: "article", payload: article });
+});
+
 //Read articles of all authors
 userApp.get("/articles", verifyToken("USER"), async (req, res) => {
   //read artcles

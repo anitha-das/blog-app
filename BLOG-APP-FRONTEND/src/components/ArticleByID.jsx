@@ -2,6 +2,7 @@ import { useParams, useLocation, useNavigate } from "react-router";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { useAuth } from "../store/authStore.js";
+import { toast } from "react-hot-toast";
 import {
   articlePageWrapper,
   articleHeader,
@@ -80,10 +81,11 @@ function ArticleByID() {
 
     try {
       const res = await axios.patch(
-        "http://localhost:4000/author-api/articles",
-        { articleId: article._id, isArticleActive: newStatus },
-        { withCredentials: true },
-      );
+  "http://localhost:4000/author-api/articles",
+  { articleId: article._id, isArticleActive: newStatus },
+  { withCredentials: true },
+);
+
 
       console.log("SUCCESS:", res.data);
 
@@ -115,7 +117,7 @@ function ArticleByID() {
     commentObj.articleId = article._id;
     console.log(commentObj);
     let res = await axios.put("http://localhost:4000/user-api/articles", commentObj, { withCredentials: true });
-    if (res.status === 200) {
+ if (res.status === 200) {
       
       setArticle(res.data.payload);
     }

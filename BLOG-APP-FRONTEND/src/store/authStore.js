@@ -22,16 +22,15 @@ export const useAuth = create((set) => ({
           error: null,
         });
       }
-    } catch (err) {
-      console.log("err is ", err);
-      set({
-        loading: false,
-        isAuthenticated: false,
-        currentUser: null,
-        //error: err,
-        error: err.response?.data?.error || "Login failed",
-      });
-    }
+    }catch (err) {
+  console.warn("Login error:", err.response?.data?.message || "Login failed");
+  set({
+    loading: false,
+    isAuthenticated: false,
+    currentUser: null,
+    error: err.response?.data?.error || err.response?.data?.message || "Login failed",
+  });
+}
   },
   logout: async () => {
     try {

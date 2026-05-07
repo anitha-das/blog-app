@@ -1,0 +1,52 @@
+### Admin Login
+POST http://localhost:4000/auth/login
+Content-Type: application/json
+
+{
+  "email": "admin@mail.com",
+  "password": "admin"
+}
+
+
+### Admin Logout
+GET http://localhost:4000/auth/logout
+
+
+### Get all users
+GET http://localhost:4000/admin-api/users
+
+
+### Block / unblock user
+PATCH http://localhost:4000/admin-api/users
+Content-Type: application/json
+
+{
+  "userId": "69f7dd53fd061354347d39fd",
+  "isUserActive": false
+}
+
+
+### Get all articles
+GET http://localhost:4000/admin-api/articles
+
+
+### Update any article
+PUT http://localhost:4000/admin-api/articles
+Content-Type: application/json
+
+{
+  "articleId": "69dbd732f8758b75e368d98d",
+  "title": "C language",
+  "category": "programming",
+  "content": "Basic of C language" 
+}
+
+
+### Delete / restore any article
+PATCH http://localhost:4000/admin-api/articles
+Content-Type: application/json
+
+{
+  "articleId": "",
+  "isArticleActive": false
+}
