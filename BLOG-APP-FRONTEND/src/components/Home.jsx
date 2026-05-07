@@ -44,7 +44,7 @@ function Home() {
           <img
             src={heroImg}
             alt="Blog writing"
-            className="w-full h-[360px] object-cover rounded-2xl"
+            className="w-full h-96 object-cover rounded-2xl"
           />
         </div>
       </section>
