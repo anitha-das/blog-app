@@ -21,7 +21,8 @@ const app = exp();
 app.use(cors({
   origin: [
     "http://localhost:5173", 
-    "https://blog-q7s9kjojw-anitha-das-projects.vercel.app" // stable production domain
+    "https://blog-q7s9kjojw-anitha-das-projects.vercel.app",
+    "https://blog-3v7ytace4-anitha-das-projects.vercel.app" // stable production domain
   ],
   methods: ["GET", "POST", "PUT", "DELETE", "PATCH"],
   credentials: true
