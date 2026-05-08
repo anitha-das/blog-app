@@ -44,7 +44,7 @@ function EditArticle() {
     modifiedArticle.articleId=article._id;
     //make PUT req to update article
    let res = await axios.put(
-  "http://localhost:4000/author-api/articles",
+  "https://blog-app-0740.onrender.com/author-api/articles",
   modifiedArticle,
   { withCredentials: true },
 );

@@ -15,12 +15,12 @@ function AdminProfile() {
   const [loading, setLoading] = useState(false);
 
   const getUsers = async () => {
-    const res = await axios.get("http://localhost:4000/admin-api/users", { withCredentials: true });
+    const res = await axios.get("https://blog-app-0740.onrender.com/admin-api/users", { withCredentials: true });
     setUsers(res.data.payload);
   };
 
   const getArticles = async () => {
-    const res = await axios.get("http://localhost:4000/admin-api/articles", { withCredentials: true });
+    const res = await axios.get("https://blog-app-0740.onrender.com/admin-api/articles", { withCredentials: true });
     setArticles(res.data.payload);
   };
 
@@ -48,7 +48,7 @@ function AdminProfile() {
   const toggleUserStatus = async (userObj) => {
     try {
       const res = await axios.patch(
-        "http://localhost:4000/admin-api/users",
+        "https://blog-app-0740.onrender.com/admin-api/users",
         {
           userId: userObj._id,
           isUserActive: !userObj.isUserActive,
@@ -66,7 +66,7 @@ function AdminProfile() {
   const toggleArticleStatus = async (articleObj) => {
     try {
       const res = await axios.patch(
-        "http://localhost:4000/admin-api/articles",
+        "https://blog-app-0740.onrender.com/admin-api/articles",
         {
           articleId: articleObj._id,
           isArticleActive: !articleObj.isArticleActive,
