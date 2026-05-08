@@ -21,7 +21,8 @@ const app = exp();
 app.use(cors({
   origin: [
     "http://localhost:5173", // local dev
-    "https://blog-369c7fv9i-anitha-das-projects.vercel.app" // deployed frontend
+    "https://blog-369c7fv9i-anitha-das-projects.vercel.app",//other deployment
+    "https://blog-i9ci41e0u-anitha-das-projects.vercel.app" // deployed frontend
   ],
   methods: ["GET", "POST", "PUT", "DELETE", "PATCH"],
   credentials: true
