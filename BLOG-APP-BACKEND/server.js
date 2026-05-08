@@ -12,10 +12,21 @@ config();
 //create express app
 const app = exp();
 //enable cors
+// app.use(cors({
+//   origin:['http://localhost:5173'],
+//   credentials:true
+// }))
+// const cors = require("cors");
+
 app.use(cors({
-  origin:['http://localhost:5173'],
-  credentials:true
-}))
+  origin: [
+    "http://localhost:5173", // local dev
+    "https://blog-369c7fv9i-anitha-das-projects.vercel.app" // deployed frontend
+  ],
+  methods: ["GET", "POST", "PUT", "DELETE", "PATCH"],
+  credentials: true
+}));
+
 //add cookie parser middeleware
 app.use(cookieParser())
 //body parser middleware
