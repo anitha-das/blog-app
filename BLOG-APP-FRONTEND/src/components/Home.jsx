@@ -1,5 +1,5 @@
 import { NavLink } from "react-router-dom";
-import heroImg from "../assets/hero.png";
+import heroImg from "../assets/img.jpeg";
 import {
   pageWrapper,
   pageTitleClass,
