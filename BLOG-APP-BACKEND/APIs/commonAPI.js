@@ -97,8 +97,8 @@ commonApp.post("/login", async (req, res) => {
 
   res.cookie("token", signedToken, {
     httpOnly: true,
-    secure: false,
-    sameSite: "lax",
+    secure: true,
+    sameSite: "none",
   });
 
   let userObj = user.toObject();
